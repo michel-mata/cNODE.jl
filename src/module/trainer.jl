@@ -3,19 +3,19 @@
         N::Int64
         )
 
-    Layer with `N × N` parameters with dynamics:
+Layer with `N × N` parameters with dynamics:
 
-    ```
-    function (L::FitnessLayer)(p)
-        f = L.W *p
-        ṗ = p .* (f - ones(size(p,1))*p'*f)
-        return ( ṗ )
-    end
-    ```
+```julia
+function (L::FitnessLayer)(p)
+    f = L.W *p
+    ṗ = p .* (f - ones(size(p,1))*p'*f)
+    return ( ṗ )
+end
+```
 
-    # Arguments:
-    - `N::Int64` : layer size on declaration
-    - `p::Array` : initial condition of dynamics on run
+# Arguments:
+- `N::Int64` : layer size on declaration
+- `p::Array` : initial condition of dynamics on run
 """
 struct FitnessLayer
     W
@@ -35,10 +35,10 @@ end
         N::Int64
         )
 
-    Get compositional Neural ODE (cNODE) for system of size `N`.
+Get compositional Neural ODE (cNODE) for system of size `N`.
 
-    # Arguments:
-    - `N::Int64` : system size
+# Arguments:
+- `N::Int64` : system size
 """
 getModel(N::Int64) = NeuralODE(FitnessLayer(N),(0.0,1.0),Tsit5(),saveat=1.0)
 
@@ -48,13 +48,15 @@ getModel(N::Int64) = NeuralODE(FitnessLayer(N),(0.0,1.0),Tsit5(),saveat=1.0)
         z
         )
 
-    Predict composition from normalized collection `z`.
+Predict composition from normalized collection `z`.
 
-    # Arguments:
-    - `cnode::NeuralODE` : compositional Neural ODE with `FitnessLayer`
-    - `z::Array` : normalized collection of species with size `N×1`
+# Arguments:
+- `cnode::NeuralODE` : compositional Neural ODE with `FitnessLayer`
+- `z::Array` : normalized collection of species with size `N×1`
 """
 predict(cnode::NeuralODE,z) = Array(cnode(z).u[end])
+
+_loss(cnode::NeuralODE,z,p) = sum(abs.(p .- predict(cnode,z))) / sum(abs.(p .+ predict(cnode,z)))
 
 """
     loss(
@@ -63,14 +65,13 @@ predict(cnode::NeuralODE,z) = Array(cnode(z).u[end])
         p
     )
 
-    Compute loss between predictions `q = node(z)` and true data `p`.
+Compute loss between predictions `q = node(z)` and true data `p`.
 
-    # Arguments:
-    - `node::NeuralODE` : neural ODE with `FitnessLayer`
-    - `z::Array` : normalized collection of species with size `N×1`
-    - `p::Array` : true relative abundances, size `N×1`
+# Arguments:
+- `node::NeuralODE` : neural ODE with `FitnessLayer`
+- `z::Array` : normalized collection of species with size `N×1`
+- `p::Array` : true relative abundances, size `N×1`
 """
-_loss(cnode::NeuralODE,z,p) = sum(abs.(p .- predict(cnode,z))) / sum(abs.(p .+ predict(cnode,z)))
 loss(cnode::NeuralODE,Z,P) = mean([ _loss(cnode,Z[:,i],P[:,i]) for i in 1:size(Z,2) ])
 
 """
@@ -86,19 +87,18 @@ loss(cnode::NeuralODE,Z,P) = mean([ _loss(cnode,Z[:,i],P[:,i]) for i in 1:size(Z
         early_stoping::Int64
     )
 
-    Train cNODE using the Reptile meta-learning algorithm.
+Train cNODE using the Reptile meta-learning algorithm.
 
-    # Arguments:
-    - cnode::NeuralODE : compositional Neural ODE to train
-    - epochs::Int64 : number of epochs for training
-    - mb::Int64 : minibatch size
-    - LR::Array{Float64} : array with internal and external learning rates
-    - Ztrn, Ptrn : training data
-    - Zval, Pval : validation data
-    - Ztst, Ptst : test data
-    - report::Int64 : interval of epochs to report
-    - early_stoping::Int64 : min epochs to start early stopping
-
+# Arguments:
+- cnode::NeuralODE : compositional Neural ODE to train
+- epochs::Int64 : number of epochs for training
+- mb::Int64 : minibatch size
+- LR::Array{Float64} : array with internal and external learning rates
+- Ztrn, Ptrn : training data
+- Zval, Pval : validation data
+- Ztst, Ptst : test data
+- report::Int64 : interval of epochs to report
+- early_stoping::Int64 : min epochs to start early stopping
 """
 function train_reptile(
             cnode::NeuralODE,

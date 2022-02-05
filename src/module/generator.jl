@@ -30,11 +30,11 @@ end
         t
     )
 
-    Get GLV dynamics.
+Get GLV dynamics.
 
-    # Arguments:
-    - `pars::Array` : concatenation of matrix `A` and vector `r`
-    - `x` and `t` : placeholders for ODE solver
+# Arguments:
+- `pars::Array` : concatenation of matrix `A` and vector `r`
+- `x` and `t` : placeholders for ODE solver
 """
 function getGLV(
             x::Array,
@@ -56,11 +56,11 @@ end
         M::Int64
         )
 
-    Get collection of species `z` and numerical initial condition `x₀`.
+Get collection of species `z` and numerical initial condition `x₀`.
 
-    # Arguments:
-    - `N::Int64` : number of species
-    - `M::Int64` : number of communities
+# Arguments:
+- `N::Int64` : number of species
+- `M::Int64` : number of communities
 """
 function getIC(
             N::Int64,
@@ -87,13 +87,13 @@ end
         r::Array{Float64}
         )
 
-    Get steady-state of dynamics by integrating ODE.
+Get steady-state of dynamics by integrating ODE.
 
-    # Arguments:
-    - `x₀::Vector` : numerical initial condition
-    - `τ::Float64` : integration time
-    - `A::Array{Float64}` : interaction matrix
-    - `r::Array{Float64}` : intrinsic growth rates
+# Arguments:
+- `x₀::Vector` : numerical initial condition
+- `τ::Float64` : integration time
+- `A::Array{Float64}` : interaction matrix
+- `r::Array{Float64}` : intrinsic growth rates
 """
 function getSteadyState(
             x₀::Vector,
@@ -113,11 +113,11 @@ end
         p::Float64
         )
 
-    Get rewired interaction matrix.
+Get rewired interaction matrix.
 
-    # Arguments:
-    - `A::Array{Float64}` : interaction matrix
-    - `p::Float64` : rewiring probability
+# Arguments:
+- `A::Array{Float64}` : interaction matrix
+- `p::Float64` : rewiring probability
 """
 function getRewiredNetwork(
             A::Array{Float64},
@@ -138,12 +138,22 @@ end
 
 """
         generate_data(
-            N,
-            M,
-            repetitions,
-            values,
-            params
+            N::Int64,
+            M::Int64,
+            repetitions::Int64,
+            values::Int64,
+            params::Array
         )
+
+Generate synthetic data for parameters in `params`.
+The function generates a number of `repetitions` for every value of `values`.
+
+# Arguments:
+- `N::Int64` : number of species
+- `M::Int64` : number of communitites
+- `repetitions::Int64` : number of ecological networks
+- `values::Int64` : number of values per parameter
+- `params::Array` : sweeping parameters
 """
 function generate_data(N,M,repetitions,values,params)
     reps = 0:repetitions-1

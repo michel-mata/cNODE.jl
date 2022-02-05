@@ -6,7 +6,9 @@ makedocs(
     modules = [cNODE],
     pages = [
             "Home" => "index.md",
-            ],
+            "Generate Data" => "generator.md",
+            "Load Data" => "loader.md",
+            "Use cNODE" => "trainer.md"],
     format = Documenter.HTML(prettyurls = true)
 )
 

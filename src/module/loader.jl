@@ -3,11 +3,11 @@
         path::String
         )
 
-    Import species collections `Z` and compositions `P`.
+Import species collections `Z` and compositions `P`.
 
-    # Arguments:
-    - `path::String` : location of data
-    - `p::Float64` : optional partition
+# Arguments:
+- `path::String` : location of data
+- `p::Float64` : optional partition
 """
 function import_data(
             path::String,
@@ -36,14 +36,13 @@ end
         q::Float64
     )
 
-    Split data into train, validation and test sets.
+Split data into train, validation and test sets.
 
-    # Arguments:
-    - `Z::Array{Float64}` : collections
-    - `P::Array{Float64}` : compositions
-    - `p::Float64` : percentage for training
-    - `q::Float64` : partition into training (`q`%) and validation (`1-q`%) sets
-
+# Arguments:
+- `Z::Array{Float64}` : collections
+- `P::Array{Float64}` : compositions
+- `p::Float64` : percentage for training
+- `q::Float64` : partition into training (`q`%) and validation (`1-q`%) sets
 """
 function split_data(
                 Z::Array{Float64},
