@@ -12,7 +12,7 @@ makedocs(
 # See "Hosting Documentation" and deploydocs() in the Documenter manual
 # for more information.
 deploydocs(
-    repo = "https://github.com/michel-mata/cNODE.jl.git",
+    repo = "github.com/michel-mata/cNODE.jl.git",
     devbranch = "main",
     target = "build",
     push_preview = false
