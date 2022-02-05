@@ -1,4 +1,3 @@
-
 """
     getParameters(
         N::Int64,
