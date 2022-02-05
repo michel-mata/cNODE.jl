@@ -20,13 +20,13 @@ getParameters
 
 ## Meta
 ```@meta
-CurrentModule = cNODE
+    CurrentModule = cNODE
 ```
 
 # API
 This page is a dump of all the docstrings found in the code.
 
 ```@autodocs
-Modules = [NewPackage]
-Order = [:module, :type, :function, :macro]
+    Modules = [cNODE]
+    Order = [:module, :type, :function, :macro]
 ```
