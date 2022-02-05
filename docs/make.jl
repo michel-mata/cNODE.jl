@@ -3,9 +3,10 @@ using cNODE
 
 makedocs(
     sitename = "cNODE.jl",
-    format = Documenter.HTML(),
     modules = [cNODE],
-    pages = ["Home" => "index.md"],
+    pages = [
+            "Home" => "index.md",
+            ],
     format = Documenter.HTML(prettyurls = true)
 )
 

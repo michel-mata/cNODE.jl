@@ -6,12 +6,12 @@
         σ::Float64
         )
 
-    Get matrix of interactions `A` and instrisic growth rates `r`.
+Get matrix of interactions `A` and instrisic growth rates `r`.
 
-    # Arguments:
-    - `N::Int64` : number of species
-    - `C::Float64` : connectivity
-    - `σ::Float64` : interaction strength
+# Arguments:
+- `N::Int64` : number of species
+- `C::Float64` : connectivity
+- `σ::Float64` : interaction strength
 """
 function getParameters(
             N::Int64,

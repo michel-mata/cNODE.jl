@@ -1,8 +1,10 @@
 # cNODE.jl
 
-*Julia Package with a compositional Neural Ordinary Differential Equation*
+Julia Package with a compositional Neural Ordinary Differential Equation
 
-# Example.jl Documentation
+```@meta
+CurrentModule = cNODE
+```
 
 ```@contents
 ```
@@ -11,22 +13,10 @@
 
 ```@docs
 getParameters
+getGLV
 ```
 
 ## Index
 
 ```@index
-```
-
-## Meta
-```@meta
-    CurrentModule = cNODE
-```
-
-# API
-This page is a dump of all the docstrings found in the code.
-
-```@autodocs
-    Modules = [cNODE]
-    Order = [:module, :type, :function, :macro]
 ```
