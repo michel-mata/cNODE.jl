@@ -40,4 +40,4 @@ tutorial_real_data.jl
 
 ---
 ## Paper
-The results from our [paper](https://doi.org/10.1101/2021.06.17.448886) were obtained in Julia 0.6.4, check the folder `paper_code/` for this version.
+The results from our [paper](https://doi.org/10.1101/2021.06.17.448886) were obtained in Julia 0.6.4, check the [repository](https://github.com/michel-mata/cNODE-paper) for this version.
