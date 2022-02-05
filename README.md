@@ -5,14 +5,12 @@
 [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://michel-mata.github.io/cNODE.jl)
 ---
 
-This repository contains a Julia package for using compositional Neural Ordinary Differential Equations (`cNODE`) associated with the paper: "Predicting microbiome compositions from species assemblages through deep learning" (doi: https://doi.org/10.1101/2021.06.17.448886).
+This repository contains a Julia package for using a compositional Neural Ordinary Differential Equation (`cNODE`) associated with the paper: "Predicting microbiome compositions from species assemblages through deep learning" (doi: https://doi.org/10.1101/2021.06.17.448886).
 
 ---
 ## Documentation
-Check out the [documentation](https://michel-mata.github.io/cNODE.jl/).
+Check out the [documentation](https://michel-mata.github.io/cNODE.jl/) for the usage of the Package.
 
-
----
 ## Usage
 
 This package is build for Julia at the long term support release.
@@ -22,7 +20,6 @@ To install `cNODE.jl`, on Julia REPL press `]` to acces Pkg utilities and add pa
 ```
 (@v1.6) pkg> add https://github.com/michel-mata/cNODE.jl.git
 ```
-
 ---
 ## Tutorial
 
