@@ -6,7 +6,7 @@ Julia Package with a compositional Neural Ordinary Differential Equation
 CurrentModule = cNODE
 ```
 
-## Synthetic Data Generator
+## Generate Data
 ```@contents
 Pages = ["generator.md"]
 ```

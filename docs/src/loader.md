@@ -1,6 +1,8 @@
-# Load data
-
+### Load data
 ```@docs
-import_data
+split_data
+```
+### Split data
+```@docs
 split_data
 ```

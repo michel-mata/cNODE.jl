@@ -25,7 +25,7 @@ end
 
 """
     getGLV(
-        x,
+        x::Array,
         pars::Array,
         t
     )

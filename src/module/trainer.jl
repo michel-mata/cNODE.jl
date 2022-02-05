@@ -90,15 +90,15 @@ loss(cnode::NeuralODE,Z,P) = mean([ _loss(cnode,Z[:,i],P[:,i]) for i in 1:size(Z
 Train cNODE using the Reptile meta-learning algorithm.
 
 # Arguments:
-- cnode::NeuralODE : compositional Neural ODE to train
-- epochs::Int64 : number of epochs for training
-- mb::Int64 : minibatch size
-- LR::Array{Float64} : array with internal and external learning rates
-- Ztrn, Ptrn : training data
-- Zval, Pval : validation data
-- Ztst, Ptst : test data
-- report::Int64 : interval of epochs to report
-- early_stoping::Int64 : min epochs to start early stopping
+- `cnode::NeuralODE` : compositional Neural ODE to train
+- `epochs::Int64` : number of epochs for training
+- `mb::Int64` : minibatch size
+- `LR::Array{Float64}` : array with internal and external learning rates
+- `Ztrn, Ptrn` : training data
+- `Zval, Pval` : validation data
+- `Ztst, Ptst` : test data
+- `report::Int64` : interval of epochs to report
+- `early_stoping::Int64` : min epochs to start early stopping
 """
 function train_reptile(
             cnode::NeuralODE,
