@@ -13,5 +13,7 @@ makedocs(
 # for more information.
 deploydocs(
     repo = "https://github.com/michel-mata/cNODE.jl.git",
-    devbranch = "main"
+    devbranch = "main",
+    target = "build",
+    push_review = false
 )
