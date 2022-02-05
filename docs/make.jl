@@ -9,7 +9,7 @@ makedocs(
             "Generate Data" => "generator.md",
             "Load Data" => "loader.md",
             "Use cNODE" => "trainer.md"],
-    format = Documenter.HTML(prettyurls = true)
+    format = Documenter.HTML()
 )
 
 # Documenter can also automatically deploy documentation to gh-pages.
