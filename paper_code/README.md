@@ -1,4 +1,8 @@
-#### Usage
+### Reproducing results
+The datasets analyzed on our paper are under `Data/` and the results under `Results/`. To produce the figures of the paper, the Mathematica code is under the folder `Figures/`.
+
+
+### Usage
 Download: Julia 0.6.4 from the [GitHub repository](https://github.com/JuliaLang/julia/tree/v0.6.4) or the [webpage](https://julialang.org/downloads/oldreleases/)
 
 For generating synthetic data using the GLV model, run:
