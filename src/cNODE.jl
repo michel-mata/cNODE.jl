@@ -16,15 +16,16 @@ module cNODE
 
     # functions
     include("./module/generator.jl")
-    export getParameters, getIC, getSteadyState, getRewiredNetwork
+    export getParameters, getIC, getGLV
+    export getSteadyState, getRewiredNetwork
     export generate_data
 
     include("./module/trainer.jl")
     export FitnessLayer
+    export getModel
     export predict
     export loss
     export train_reptile
-    export getModel
 
     include("./module/loader.jl")
     export import_data

@@ -25,7 +25,7 @@ end
 
 """
     getGLV(
-        x::Array,
+        x,
         pars::Array,
         t
     )
@@ -37,7 +37,7 @@ Get GLV dynamics.
 - `x` and `t` : placeholders for ODE solver
 """
 function getGLV(
-            x::Array,
+            x,
             pars::Array,
             t
             )
