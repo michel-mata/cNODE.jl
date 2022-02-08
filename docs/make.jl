@@ -19,5 +19,5 @@ deploydocs(
     repo = "github.com/michel-mata/cNODE.jl.git",
     devbranch = "main",
     target = "build",
-    push_preview = false
+    versions = ["stable" => "v^"]
 )
